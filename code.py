@@ -360,7 +360,10 @@ import time
 
 # Launch Streamlit in a thread
 def run_app():
-    !streamlit run app.py
+import subprocess
+
+subprocess.Popen(["streamlit", "run", "app.py"])
+
 
 thread = threading.Thread(target=run_app)
 thread.start()
