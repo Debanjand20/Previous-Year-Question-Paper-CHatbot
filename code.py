@@ -7,8 +7,16 @@ Original file is located at
     https://colab.research.google.com/drive/10euX-znaVu1Ncm5pGSHmh7EAUsZuikWu
 """
 
-!pip install streamlit google-api-python-client google-auth sentence-transformers spacy
-!python -m spacy download en_core_web_sm
+import subprocess
+import sys
+
+# Install required packages
+subprocess.check_call([sys.executable, "-m", "pip", "install", 
+                       "streamlit", "google-api-python-client", "google-auth", 
+                       "sentence-transformers", "spacy"])
+
+subprocess.check_call([sys.executable, "-m", "spacy", "download", "en_core_web_sm"])
+
 
 from google.colab import files
 uploaded = files.upload()
