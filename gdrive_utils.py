@@ -2,12 +2,17 @@ import re
 from google.oauth2 import service_account
 from googleapiclient.discovery import build
 
+import streamlit as st
+
+
 def get_drive_service():
-    creds = service_account.Credentials.from_service_account_file(
-        "service_account.json",  # Place this securely or use Streamlit secrets
+    service_account_info = st.secrets["gcp_service_account"]
+    creds = service_account.Credentials.from_service_account_info(
+        service_account_info,
         scopes=["https://www.googleapis.com/auth/drive.readonly"]
     )
     return build("drive", "v3", credentials=creds)
+
 
 def list_pdf_metadata(service, root_folder_id, requested_year):
     metadata = []
