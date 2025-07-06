@@ -349,7 +349,11 @@ shutil.move("service_account.json", "/content/service_account.json")
 # <p style='font-size:14px; color:#888888;'>Built with ❤️ using Streamlit · Powered by Google Drive · NLP search enabled</p>
 # """, unsafe_allow_html=True)
 
-!pip install pyngrok
+import subprocess
+import sys
+
+subprocess.check_call([sys.executable, "-m", "pip", "install", "pyngrok"])
+
 from pyngrok import ngrok
 import threading
 import time
