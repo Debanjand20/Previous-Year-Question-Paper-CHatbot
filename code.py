@@ -355,7 +355,8 @@ thread.start()
 
 # Wait a bit to let Streamlit start
 time.sleep(5)
-!ngrok config add-authtoken 2zHXBYbvnRZsFZ7p1voNLfEUxoU_49Tq3szQiEHY6owJ3CddQ
-# Expose Streamlit app
+from pyngrok import ngrok, conf
+
+conf.get_default().auth_token = "2zHXBYbvnRZsFZ7p1voNLfEUxoU_49Tq3szQiEHY6owJ3CddQ"
 public_url = ngrok.connect(8501)
 print(f"🌐 Your app is live at: {public_url}")
