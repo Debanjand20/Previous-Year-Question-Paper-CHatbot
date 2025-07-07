@@ -1,3 +1,25 @@
+import logging
+logging.basicConfig(level=logging.INFO)
+logging.info("app.py start")
+
+import streamlit as st
+logging.info("Streamlit imported")
+
+from gdrive_utils import get_drive_service
+logging.info("gdrive_utils imported")
+
+from parse_query import parse_query, semantic_ranking
+logging.info("parse_query imported")
+
+
+
+
+
+
+
+
+
+
 import streamlit as st
 from gdrive_utils import get_drive_service, list_pdf_metadata, file_link
 from parse_query import parse_query, semantic_ranking
